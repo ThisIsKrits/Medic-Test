@@ -38,7 +38,7 @@ php artisan migrate --seed
 
 php artisan serve
 
-```bash
+---
 
 🔐 Akun Login (Seeder Default)
 
@@ -49,7 +49,7 @@ php artisan serve
 | superadmin | [superadmin@example.com](mailto:superadmin@example.com) | password |
 | admin | [admin@example.com](mailto:admin@example.com) | password |
 
-```bash
+---
 
 🗄️ Struktur Database Utama
 users – data user (dokter dan apoteker), menggunakan Spatie Roles
@@ -66,7 +66,7 @@ prescription_items – item dalam resep (obat, jumlah, harga)
 
 log – data log aktivitas
 
-```bash
+---
 
 🧾 Validasi & Hak Akses
 Dokter hanya dapat mengubah resep sebelum dilayani
@@ -77,7 +77,7 @@ Validasi backend menggunakan Laravel Form Request
 
 Navigasi dinamis berdasarkan role use
 
-```bash
+---
 
 🧑‍💻 Developer
 Proyek ini dibuat untuk keperluan tes teknikal.
