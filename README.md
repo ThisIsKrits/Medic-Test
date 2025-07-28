@@ -37,3 +37,48 @@ php artisan key:generate
 php artisan migrate --seed
 
 php artisan serve
+
+---
+
+🔐 Akun Login (Seeder Default)
+
+| Role     | Email                                               | Password |
+| -------- | --------------------------------------------------- | -------- |
+| Dokter   | [dokter@example.com](mailto:dokter@example.com)     | password |
+| Apoteker | [apoteker@example.com](mailto:apoteker@example.com) | password |
+| superadmin | [superadmin@example.com](mailto:superadmin@example.com) | password |
+| admin | [admin@example.com](mailto:admin@example.com) | password |
+
+---
+
+🗄️ Struktur Database Utama
+users – data user (dokter dan apoteker), menggunakan Spatie Roles
+
+patients – data pasien
+
+medicine – data obat diambil dari api
+
+checkups – data pemeriksaan + tanda vital
+
+prescriptions – data resep obat, PDF resi
+
+prescription_items – item dalam resep (obat, jumlah, harga)
+
+log – data log aktivitas
+
+---
+
+🧾 Validasi & Hak Akses
+Dokter hanya dapat mengubah resep sebelum dilayani
+
+Apoteker hanya bisa melihat dan memproses resep yang belum selesai
+
+Validasi backend menggunakan Laravel Form Request
+
+Navigasi dinamis berdasarkan role use
+
+---
+
+🧑‍💻 Developer
+Proyek ini dibuat untuk keperluan tes teknikal.
+© 2025 – Developed by ThisIsKrits
