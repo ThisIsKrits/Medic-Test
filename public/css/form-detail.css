@@ -1,0 +1,63 @@
+body {
+    margin: 0;
+    overflow-x: hidden;
+}
+#content-detail input[type=number], .nilsat, .nil, .discpct,.discnil,.kurs,.taxpct,.pphpct{
+    text-align: right;
+}
+
+.table-responsive{
+    overflow-x: auto;
+}
+
+.table-responsive-level{
+    overflow-x: auto;
+}
+
+.table{
+    width: max-content;
+}
+
+
+@media (max-width: 768px) {
+    .table-responsive {
+        overflow-x: auto;
+    }
+
+    .table {
+        width: max-content;
+    }
+
+    .table-responsive-level {
+        overflow-x: auto; /* Membuat tabel bisa digulir ke kiri/kanan hanya di mobile */
+        white-space: nowrap; /* Mencegah teks membungkus */
+    }
+
+    .table-level th, .table-level td {
+        vertical-align: middle;
+    }
+
+    .table-level th:nth-child(1){
+        width: 100px;
+    }
+
+    .table-level th:first-child, .table-level td:first-child {
+        position: sticky;
+        left: 0;
+        background-color: #ffffff;
+        z-index: 3;
+        min-width: 100px; /* Sesuaikan dengan lebar kolom Menu */
+    }
+
+    .table-level th:nth-child(2), .table-level td:nth-child(2) {
+        position: sticky;
+        left: 100px; /* Sesuaikan dengan lebar kolom Menu */
+        background-color: #ffffff;
+        z-index: 3;
+        min-width: 150px; /* Sesuaikan dengan lebar kolom Sub Menu */
+    }
+
+    .table-level th:nth-child(n+3), .table-level td:nth-child(n+3) {
+        min-width: 90px; /* Lebar tambahan untuk kolom ketiga dan seterusnya */
+    }
+}
