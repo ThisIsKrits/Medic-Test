@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PrescriptionRequest;
+use App\Models\Prescription;
 use App\Repositories\PrescriptionRepository;
 use App\Services\PrescriptionService;
 use Illuminate\Http\Request;
@@ -87,6 +88,23 @@ class PrescriptionController extends Controller
      */
     public function edit(string $id)
     {
+        $item = Prescription::find($id);
+
+        if ($item->status == 2) {
+            $message = "Resep {$item->no} tidak bisa diedit karena sudah dilayani.";
+
+            if (request()->ajax()) {
+                return response()->json([
+                    'status' => 'error',
+                    'message' => $message
+                ], 403);
+            }
+
+            return redirect()
+                ->route('prescription.index')
+                ->with('error', $message);
+        }
+
         return view('dashboard.prescription.edit', [
             'item'       => $this->repo->findById($id),
             'formFields' => $this->repo->formField(),
@@ -111,7 +129,7 @@ class PrescriptionController extends Controller
 
             DB::commit();
 
-            $message = $item->nama.' telah diupdate';
+            $message = $item->no.' telah diupdate';
             return redirect()
                     ->route('prescription.index')
                     ->withSuccess($message);

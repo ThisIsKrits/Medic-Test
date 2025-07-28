@@ -38,7 +38,9 @@ php artisan migrate --seed
 
 php artisan serve
 
----
+## 🛠️ Cara Install & Jalankan Lokal
+
+```
 
 🔐 Akun Login (Seeder Default)
 

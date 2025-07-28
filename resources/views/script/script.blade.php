@@ -281,9 +281,10 @@
         })
         .fail(function(data) {
             if(data.status == 403) {
+                const message = data.responseJSON?.message || "Anda tidak memiliki akses yang diperlukan untuk halaman ini!";
                 Swal.fire({
                     title: "Akses Ditolak",
-                    text: "Anda tidak memiliki akses yang diperlukan untuk halaman ini!",
+                    text: message,
                     icon: "warning"
                 })
                 return
