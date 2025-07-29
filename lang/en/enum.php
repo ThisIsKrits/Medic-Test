@@ -8,6 +8,7 @@ return [
     \App\Enums\StatusPrecription::class => [
         \App\Enums\StatusPrecription::PENDING => 'Pending',
         \App\Enums\StatusPrecription::DILAYANI => 'Dilayani',
+        \App\Enums\StatusPrecription::DITEBUS => 'Ditebus',
     ],
     \App\Enums\GenderEnum::class => [
         \App\Enums\GenderEnum::GENTLE => 'Laki-Laki',

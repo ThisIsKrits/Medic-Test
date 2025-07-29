@@ -49,7 +49,7 @@
     @endhasanyrole
 
     {{-- Resep: apoteker dan superadmin --}}
-    @hasanyrole('apoteker|superadmin')
+    @hasanyrole('apoteker|superadmin|dokter')
     <li class="nav-item {{ Request::routeIs('prescription.*') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('prescription.index') }}">
             <i class="fa-solid fa-receipt"></i>

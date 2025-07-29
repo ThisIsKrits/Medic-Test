@@ -8,4 +8,5 @@ class StatusPrecription extends BaseEnum
 {
     const PENDING = 1;
     const DILAYANI = 2;
+    const DITEBUS = 3;
 }

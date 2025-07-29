@@ -7,6 +7,7 @@ use App\Models\Prescription;
 use App\Services\PrescriptionService;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UpdateStatusPrescriptionController extends Controller
 {
@@ -32,6 +33,12 @@ class UpdateStatusPrescriptionController extends Controller
     {
         $prescription = Prescription::with('prescriptionItems')->findOrFail($id);
         $prescription->load('prescriptionItems', 'checkup','checkup.patients');
+
+        if (Auth::user()->hasAnyRole(['apoteker', 'superadmin', 'admin'])) {
+            $this->service->updateStatus($prescription, 3);
+        }
+
+
 
         $pdf = Pdf::loadView('print.resep', [
             'prescription'  => $prescription

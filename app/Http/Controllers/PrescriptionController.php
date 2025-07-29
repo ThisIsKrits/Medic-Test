@@ -150,6 +150,22 @@ class PrescriptionController extends Controller
             DB::beginTransaction();
 
             $item = $this->repo->findById($id);
+
+            if ($item->status == 2) {
+            $message = "Resep {$item->no} tidak bisa dihapus karena sudah dilayani.";
+
+            if (request()->ajax()) {
+                return response()->json([
+                    'status' => 'error',
+                    'message' => $message
+                ], 403);
+            }
+
+            return redirect()
+                ->route('prescription.index')
+                ->with('error', $message);
+        }
+
             $this->service->destroy($item);
 
             DB::commit();
